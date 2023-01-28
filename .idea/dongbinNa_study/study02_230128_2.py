@@ -9,6 +9,7 @@ while True :
     result += n - target
     n = target
 
+
     if n < k:
         break
     result += 1
