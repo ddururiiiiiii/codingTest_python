@@ -55,3 +55,4 @@ def solution(dots):
     h = max(dots)[1] - min(dots)[1]
     area = w*h
     return area
+
