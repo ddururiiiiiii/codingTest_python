@@ -10,3 +10,17 @@ def solution(A,B):
         A = A[-1] + A[:-1]
 
     return -1
+
+# 다음에 올 숫자
+def solution(common):
+    answer = 0
+    a,b,c = common[:3]
+    if (b-a) == (c-b):
+        return common[-1]+(b-a)
+    else:
+        return common[-1] * (b//a)
+    return answer
+
+# 연속된 수의 합
+def solution(num, total):
+    return [(total - (num * (num - 1) // 2)) // num + i for i in range(num)]
