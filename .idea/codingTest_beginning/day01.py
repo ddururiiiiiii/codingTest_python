@@ -1,45 +1,21 @@
+# 문자열 출력하기
+str = input()
+print(str)
 
+# a와 b출력하기
+a, b = map(int, input().strip().split(' '))
+print('a =', a)
+print('b =', b)
 
-# 두 수의 합
-def solution1(num1, num2):
-    answer = -1
+# 문자열 반복해서 출력하기
+a, b = input().strip().split(" ")
+for i in range(int(b)):
+    print(a, end = "")
 
-    answer = num1 + num2
-    print("두수의 합 : ", answer)
-    return answer
+# 대소문자 바꿔서 출력하기
+str = input().swapcase()
+print(str)
 
-# 두 수의 차
-def solution2(num1, num2):
-    answer = -1
-
-    answer = num1 - num2
-    print("두수의 차 : ", answer)
-    return answer
-
-# 두 수의 곱
-def solution3(num1, num2):
-    answer = -1
-
-    answer = num1 * num2
-    print("두수의 곱 : ", answer)
-    return answer
-
-# 몫 구하기
-def solution4(num1, num2):
-    answer = -1
-
-    answer = num1 // num2
-    print("두수의 몫 : ", answer)
-    return answer
-
-def main():
-    print("Main Function")
-    solution1(3, 4)
-    solution2(4, 1)
-    solution3(3, 4)
-    solution4(10, 4)
-
-if __name__ == "__main__":
-    main()
-
-
+# 특수문자 출력하기
+print(r'!@#$%^&*(\'"<>?:;')
+print("!@#$%^&*(\\'\"<>?:;")

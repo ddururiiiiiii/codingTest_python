@@ -1,38 +1,41 @@
-# 컨트롤 제트
-def solution(s):
+# n 번째 원소부터
+def solution(num_list, n):
     answer = []
 
-    for i in s.split():
-        if i == "Z":
-            answer.pop()
-            continue
-        answer.append(int(i))
+    for i in range(n-1, len(num_list)) :
+        answer.append(num_list[i])
 
-    return sum(answer)
+    return answer
 
-# 배열 원소의 길이
-def solution(strlist):
+# 순서 바꾸기
+def solution(num_list, n):
+    answer = []
+    answer = num_list[n:] + num_list[:n]
+
+    return answer
+
+# 왼쪽 오른쪽
+def solution(str_list):
+    answer = []
+    for i in range(len(str_list)):
+        if str_list[i]=='l':
+            return str_list[:i]
+        elif str_list[i]=='r':
+            return str_list[i+1:]
+
+    return answer
+
+# n번째 원소까지
+def solution(num_list, n):
     answer = []
 
-    for i in strlist:
-        answer.append(len(i))
+    answer = num_list[:n]
     return answer
 
-# 중복된 문자 제거
-def solution(my_string):
-    answer = "".join(dict.fromkeys(my_string))
-    return answer
+# n개 간격의 원소들
+def solution(num_list, n):
+    answer = []
 
-# 삼각형의 완성조건
-def solution(sides):
-    answer = 0
-
-    sides.sort(reverse=True)
-
-    if sides[0] < sides[1] + sides[2]:
-        answer = 1
-    else :
-        answer = 2
-
+    answer = num_list[::n]
     return answer
 

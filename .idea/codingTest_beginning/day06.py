@@ -1,42 +1,64 @@
-# 문자열 뒤집기
-def solution1(my_string):
+# 마지막 두 원소
+def solution(num_list):
+    answer = []
+
+    lastNum1 = num_list[-1]
+    lastNum2 = num_list[-2]
+
+    if lastNum1 > lastNum2 :
+        num_list.append(lastNum1 - lastNum2)
+    else :
+        num_list.append(lastNum1 * 2)
+
+
+    return num_list
+
+# 수 조작하기 1
+def solution(n, control):
+    answer = 0
+
+
+    for i in control:
+        if i == 'w':
+            n += 1
+        elif i == 's':
+            n -= 1
+        elif i == 'd':
+            n += 10
+        elif i == 'a':
+            n -= 10
+
+    return n
+
+# 수 조작하기 2
+def solution(numLog):
     answer = ''
 
-    # 문자열을 리스트로
-    myStringList = list(my_string)
-
-    #리스트를 역순으로
-    myStringList.reverse()
-
-    # 리스트를 문자열로
-    answer = ''.join(myStringList)
-
+    for i in range(1, len(numLog)) :
+        if numLog[i] - numLog[i-1]  == 1 :
+            answer += 'w'
+        if numLog[i-1] - numLog[i]  == 1 :
+            answer += 's'
+        if numLog[i] - numLog[i-1]  == 10 :
+            answer += 'd'
+        if numLog[i-1] - numLog[i]  == 10 :
+            answer += 'a'
     return answer
 
-# 직각삼각형 출력하기
-n = int(input())
+# 수열과 구간 쿼리 3
+def solution(arr, queries):
+    answer = []
 
-for i in range(n):
-    for j in range(i+1):
-        print("*", end="")
-    print("")
+    for i in queries:
+        arr[i[0]], arr[i[1]] = arr[i[1]], arr[i[0]]
 
-# 짝수 홀수 개수
-def solution2(num_list):
-    answer = [0, 0]
+    return arr
 
-    for num in num_list:
-        if num % 2 == 0:
-            answer[0] += 1
-        else :
-            answer[1] += 1
+# 수열과 구간 쿼리 2
+def solution(arr, queries):
+    answer = []
 
-    return answer
+    for i in queries:
+        arr[i[0]], arr[i[1]] = arr[i[1]], arr[i[0]]
 
-# 문자 반복 출력하기
-def solution3(my_string, n):
-    answer = ''
-
-    for i in list(my_string):
-        answer += i * n
-    return answer
+    return arr

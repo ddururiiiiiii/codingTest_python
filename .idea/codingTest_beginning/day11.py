@@ -1,35 +1,57 @@
-# 최대값 만들기 (1)
-def solution(numbers):
-    numbers.sort(reverse=True)
-    answer = numbers[0] * numbers[1]
+# 문자 개수 세기
+def solution(my_string):
+    abcArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    numArr = [0] * len(abcArr)
+    answer = []
+
+    for i in my_string:
+        for j in range(len(abcArr)):
+            if i == abcArr[j]:
+                numArr[j] = numArr[j]+1
+                print(abcArr[j], numArr)
+
+    return numArr
+
+# 배열 만들기 1
+def solution(n, k):
+    answer = []
+
+    for i in range(1, n+1):
+        if i % k == 0:
+            answer.append(i)
+
+
     return answer
 
-# 팩토리얼
-import math
-def solution(n):
-    k = 10
-    while n < math.factorial(k):
-        k -= 1
-    return k
+# 글자 지우기
+def solution(my_string, indices):
+    answer = ''
 
-# 주사위의 갯수
-def solution(box, n):
-    answer = 0
+    for index, value in enumerate(my_string):
+        if index not in indices :
+            answer += value
 
-    answer = (box[0] //  n) * (box[1] // n) * (box[2] // n)
     return answer
 
-# 합성수 찾기
-def solution(n):
+# 카운트 다운
+def solution(start, end_num):
+    answer = []
+
+    for i in range(start, end_num-1, -1):
+        answer.append(i)
+    return answer
+
+# 가까운 1 찾기
+def solution(arr, idx):
     answer = 0
-    num = []
+    temp = []
+    for i in range(idx, len(arr)):
+        if arr[i] == 1:
+            temp.append(i)
 
-    count = 0
-    for i in range(2, n+1):
-        for j in range(1, i+1):
+    if len(temp) == 0 :
+        answer = -1
+    else :
+        answer = min(temp)
 
-            if i % j == 0:
-                num.append(i)
-        if num.count(i) >= 3:
-            answer += 1
     return answer

@@ -1,56 +1,45 @@
-#개미 군단
-def solution(hp):
-    answer = 0
-    count = 0
-
-    while (hp >= 5):
-        hp -= 5
-        count += 1
-
-    while (hp >= 3):
-        hp -= 3
-        count += 1
-
-    while (hp >= 1):
-        hp -= 1
-        count += 1
-
-    return count
-
-# 모스 부호 (1)
-def solution(letter):
-    morse = {
-        '.-':'a','-...':'b','-.-.':'c','-..':'d','.':'e','..-.':'f',
-        '--.':'g','....':'h','..':'i','.---':'j','-.-':'k','.-..':'l',
-        '--':'m','-.':'n','---':'o','.--.':'p','--.-':'q','.-.':'r',
-        '...':'s','-':'t','..-':'u','...-':'v','.--':'w','-..-':'x',
-        '-.--':'y','--..':'z'
-    }
-
-    letter = letter.split(' ')
-
+# 배열 만들기5
+def solution(intStrs, k, s, l):
     answer = []
 
-    for i in letter:
-        answer.append(morse[i])
-    return ''.join(answer)
+    for intStr in intStrs:
+        if int(intStr[s:s+l]) > k :
+            answer.append(int(intStr[s:s+l]))
+    return answer
 
-# 가위 바위 보
-def solution(rsp):
-
-
-    result = {'2':'0','0':'5','5':'2'}
-
+# 부분 문자열 이어 붙여 문자열 만들기
+def solution(my_strings, parts):
     answer = ''
 
-    for i in rsp:
-        answer += result.get(i)
-    return answer
-
-# 구슬을 나누는 경우
-import math
-
-def solution(balls, share):
-    answer = math.factorial(balls) // (math.factorial(balls-share) * math.factorial(share))
+    # enumerate : 인수와 값을 동시에 접근
+    for index, val in enumerate(parts):
+        print(index, val)
+        answer += my_strings[index][val[0]:val[1]+1]
 
     return answer
+
+# 문자열의 뒤의 n글자
+def solution(my_string, n):
+    answer = ''
+    answer = my_string[len(my_string) - n:]
+    return answer
+# return my_string[-n:]
+
+# 접미사 배열
+def solution(my_string):
+    answer = []
+
+    for i in range(len(my_string)):
+        answer.append(my_string[i:])
+        answer.sort()
+    return answer
+
+# 접미사인지 확인하기
+def solution(my_string, is_suffix):
+    answer = 0
+    answer_list = []
+
+    for i in range(len(my_string)):
+        answer_list.append(my_string[i:])
+
+    return 1 if is_suffix in answer_list else 0

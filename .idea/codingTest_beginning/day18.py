@@ -1,31 +1,47 @@
-# 문자열안에 문자열
-def solution(str1, str2):
+# x 사이의 개수
+def solution(myString):
+    answer = []
+    arr = myString.split("x")
+
+    for i in arr:
+        answer.append(len(i))
+
+
+    return answer
+
+
+# 문자열 잘라서 정렬하기
+def solution(myString):
+    answer = []
+
+    arr = [string for string in myString.split("x") if string]
+    arr.sort()
+
+    return arr
+
+# 간단한 식 계산하기
+def solution(binomial):
+    answer = eval(binomial)
+    return answer
+
+# 문자열 바꿔서 찾기
+def solution(myString, pat):
     answer = 0
+    string = ""
+    for i in myString:
+        if i == "A" :
+            string += "B"
+        else :
+            string += "A"
 
-    if str2 in str1:
-        answer = 1
-    else:
-        answer = 2
-
-
-    return answer
-
-# 문자열 정렬하기
-def solution(my_string):
-    my_string = sorted(list(my_string.lower()))
-    answer = ''.join(my_string)
+    if pat in string:
+        return 1
+    else : return 0
 
     return answer
 
-# 세균 증식
-def solution(n, t):
-    answer = n
-    for i in range(t):
-        answer *= 2
+# rny_string
+def solution(rny_string):
+    answer = rny_string.replace("m", "rn")
     return answer
-
-# 제곱수 판별하기
-# 이번 문제는 n ** (1/2)가 제곱근이라는 것과,
-# 숫자를 1로 나눴을 때 나머지가 0이면 정수라는 것
-def solution(n):
-    return 1 if (n ** 0.5) % 1 == 0 else 2
+ 

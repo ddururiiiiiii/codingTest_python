@@ -1,48 +1,29 @@
-import math
-import numpy as np
+# 덧셈식 출력하기
+a, b = map(int, input().strip().split(' '))
+print(str(a)+" + " + str(b) + " = " + str(a+b))
+# print(f"{a} + {b} = {a + b}")
 
-# 두 수의 나눗셈
-def solution1(num1, num2):
-    answer = -1
+# 문자열 붙여서 출력하기
+str1, str2 = input().strip().split(' ')
+print(str(str1) +  str(str2))
+# print(input().strip().replace(' ', ''))
 
-    answer = 0
-    answer = int(num1 / num2 * 1000)
-    return answer
+# 문자열 돌리기
+str = input()
+for i in str :
+    print(i)
 
-# 숫자 비교하기
-def solution2(num1, num2):
-    if num1 == num2:
-        answer = 1
-    else:
-        answer = -1
-    return answer
+# print('\n'.join(input()))
 
-# 분수의 덧셈
-def solution3(denum1, num1, denum2, num2):
-    top = denum1 * num2 + denum2 * num1
-    bottom = num1 * num2
-    n = math.gcd(top, bottom) # 최대공약수
-    if n == 1:
-        return [top, bottom]
-    else:
-        return [top/n, bottom/n]
+# 홀짝 구분하기
+a = int(input())
+
+if a%2 == 0 :
+    print(str(a) + " is even")
+else :
+    print(str(a) + " is odd")
 
 
-# 배열 두배 만들기
-def solution(numbers):
-    answer = []
-    for i in numbers :
-        answer.append(i*2)
-    return answer
-
-# def main():
-#     print("Main Function")
-#     solution1(3, 4)
-#     solution2(4, 1)
-#     solution3(3, 4)
-#     solution4(10, 4)
-#
-# if __name__ == "__main__":
-#     main()
-#
-
+# 문자열 겹쳐쓰기
+def solution(my_string, overwrite_string, s):
+    return my_string[:s] + overwrite_string + my_string[s + len(overwrite_string):]

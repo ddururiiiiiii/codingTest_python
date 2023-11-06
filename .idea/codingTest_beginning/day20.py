@@ -1,58 +1,71 @@
-# 최댓값 만들기 (2)
-def solution(numbers):
-    numbers.sort(reverse = True)
-    return max(numbers[0] * numbers[1],numbers[-1] * numbers[-2])
+# 배열의 길이를 2의 거듭제곱으로 만들기
+def solution(arr):
+    a = 1
+    b = len(arr)
+    while a < b :
+        a *= 2
+    return arr + [0] * (a-b)
 
-# 캐릭터의 좌표
-def solution(keyinput, board):
-    limit_x = (board[0] - 1) // 2
-    limit_y = (board[1] - 1) // 2
+# 배열 비교하기
+def solution(arr1, arr2):
+    answer = 0
+    sum1 = 0
+    sum2 = 0
 
-    commands = {
-        "up": [0, 1],
-        "down": [0, -1],
-        "left": [-1, 0],
-        "right": [1, 0],
-    }
+    if len(arr1) == len(arr2):
 
-    x = y = 0
-    for command in keyinput:
-        dx, dy = commands[command]
-        nx, ny = x + dx, y + dy
-        if abs(nx) <= limit_x and abs(ny) <= limit_y:
-            x, y = nx, ny
+        for i in arr1:
+            sum1 += i
+        for j in arr2:
+            sum2 += j
 
-    return [x, y]
+        if sum1 > sum2:
+            return 1
+        elif sum1 < sum2:
+            return -1
+        else :
+            return 0
 
-# 다항식 더하기
-def solution(polynomial):
-    answer = '0'
-    l = polynomial.split("+ ")
-    ans = [0,0]
-    for a in l:
-        a = a.strip()
-        if a[-1] == "x":
-            if len(a) == 1:
-                ans[0] += 1
-            else:
-                ans[0] += int(a[:-1])
-        else:
-            ans[1] += int(a)
+    else :
+        if len(arr1) > len(arr2) :
+            return 1
+        else :
+            return -1
+    return answer
 
-    if ans[0] == 0:
-        return str(ans[1])
-    elif ans[1] == 0:
-        if ans[0] == 1:
-            return "x"
-        return str(ans[0])+"x"
-    if ans[0] == 1:
-        return "x + " + str(ans[1])
-    return str(ans[0])+"x" + " + " + str(ans[1])
+# 문자열 묶기
+def solution(strArr):
+    answer = [len(i) for i in strArr]
 
-# 직사각형 넓이 구하기
-def solution(dots):
-    w = max(dots)[0] - min(dots)[0]
-    h = max(dots)[1] - min(dots)[1]
-    area = w*h
-    return area
+    tmp = []
+    for i in set(answer):
+        tmp.append(answer.count(i))
 
+    return max(tmp)
+
+# 배열의 길이에 따라 다른 연산하기
+def solution(arr, n):
+    answer = []
+
+    if len(arr) % 2== 0: # 짝수
+        for i, v in enumerate(arr):
+            if i % 2 == 1 :
+                arr[i] = v + n
+    else:
+        for i, v in enumerate(arr):
+            if i % 2 == 0 :
+                arr[i] = v + n
+
+    return arr
+
+
+# 뒤에서 5등까지
+def solution(num_list):
+    answer = []
+
+    num_list.sort();
+
+    for i in range(0, 5):
+        answer.append(num_list[i])
+
+    return answer

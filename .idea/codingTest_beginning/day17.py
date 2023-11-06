@@ -1,38 +1,38 @@
-# n의 배수 고르기
-def solution(n, numlist):
+### 특정 문자열로 끝나는 가장 긴 부분 문자열 찾기
+
+def solution(myString, pat):
+    answer = myString.rsplit(pat, 1)[0] + pat
+    return answer
+
+### 문자열이 몇 번 등장하는지 세기
+
+def solution(myString, pat):
+    count = 0
+    index = myString.find(pat)
+
+    while index != -1:
+        count += 1
+        index = myString.find(pat, index + 1)
+
+    return count
+
+### ab 제거하기
+def solution(strArr):
     answer = []
 
-    for i in numlist:
-        if i % n == 0:
+    for i in strArr:
+        if i.find("ad") == -1 :
             answer.append(i)
 
-    return answer
-
-# 자릿수 더하기
-def solution(n):
-    answer = 0
-
-    for i in str(n):
-        answer += int(i)
 
     return answer
 
-# OX퀴즈
-def solution(quiz):
-    answer = []
-
-    for i in quiz:
-        left, right = i.split(" = ")
-        if eval(left) == int(right):
-            answer.append("O")
-        else :
-            answer.append("X")
-
+### 공백으로 구분하기 1
+def solution(my_string):
+    answer = my_string.split(" ")
     return answer
 
-# 숫자 찾기
-def solution(num, k):
-    for i, n in enumerate(str(num)):
-        if str(k) == n:
-            return i + 1
-    return -1
+### 공백으로 구분하기 2
+def solution(my_string):
+    answer = my_string.split()
+    return answer

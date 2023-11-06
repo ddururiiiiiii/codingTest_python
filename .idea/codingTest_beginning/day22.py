@@ -1,37 +1,33 @@
-# 겹치는 선분의 길이
-def solution(lines):
-    sets = [set(range(min(l), max(l))) for l in lines]
-    return len(sets[0] & sets[1] | sets[0] & sets[2] | sets[1] & sets[2])
+# 0 떼기
+def solution(n_str):
+    return str(int(n_str))
 
-# 유한소수 판별하기
-from math import gcd
+# 두 수의 합
 def solution(a, b):
-    b //= gcd(a,b)
-    while b%2==0:
-        b//=2
-    while b%5==0:
-        b//=5
-    return 1 if b==1 else 2
+    answer = int(a) + int(b)
+    return str(answer)
 
-#저주의 숫자3
+# 문자열로 변환
 def solution(n):
-    answer = 0
-    for i in range(n):
-        answer += 1
-        while answer%3 == 0 or '3' in str(answer):
-            answer += 1
-    return answer
+    return str(n)
 
-# 평행
-def solution(dots):
-    answer = 0
-    if slope(dots[0],dots[1]) == slope(dots[2],dots[3]):
-        answer = 1
-    if slope(dots[0],dots[2]) == slope(dots[1],dots[3]):
-        answer = 1
-    if slope(dots[0],åçdots[3]) == slope(dots[1],dots[2]):
-        answer = 1
-    return answer
 
-def slope(dot1,dot2):
-    return (dot2[1] - dot1[1] ) / (dot2[0] - dot1[0])
+# 배열의 원소 삭제하기
+def solution(arr, delete_list):
+    answer = []
+    for i in delete_list:
+        if i in arr:
+            arr.remove(i)
+    return arr
+
+# 부분 문자열인지 확인하기
+def solution(my_string, target):
+    answer = 0
+
+    if target in my_string:
+        answer = 1
+    else :
+        answer = 0
+
+
+    return answer

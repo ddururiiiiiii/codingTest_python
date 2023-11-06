@@ -1,27 +1,49 @@
-# 삼각형의 완성조건 (2)
-def solution(sides):
-    return (sorted(sides)[0] * 2) - 1
+# 뒤에서 5등 위로
+def solution(num_list):
+    answer = []
+    num_list.sort();
+    return num_list[5:]
 
-# 외계어 사전
-def solution(spell, dic):
-    spell = set(spell)
-    for s in dic:
-        if not spell-set(s):
-            return 1
-    return 2
+# 전국 대회 선발 고사
+def solution(rank, attendance):
+    answer = 0
+    tmp = []
+    for i, v in enumerate(rank):
+        if attendance[i] == True:
+            tmp.append(rank[i]);
 
-# 숨어있는 숫자의 덧셈 (2)
-import re
-def solution(my_string):
-    return sum(map(int,re.findall(r"[0-9]+",my_string)))
+    tmp.sort();
+    a = 0
+    b = 0
+    c = 0
+    for i, v in enumerate(rank):
+        if v == tmp[0]:
+            a = i
+        elif v == tmp[1]:
+            b = i
+        elif v == tmp[2]:
+            c = i
 
-# 안전지대
-def solution(board):
-    n = len(board)
-    danger = set()
-    for i, row in enumerate(board):
-        for j, x in enumerate(row):
-            if not x:
-                continue
-            danger.update((i+di, j+dj) for di in [-1,0,1] for dj in [-1, 0, 1])
-    return n*n - sum(0 <= i < n and 0 <= j < n for i, j in danger)
+    return 10000 * a + 100 * b + c
+
+
+# 정수 부분
+def solution(flo):
+    answer = 0
+    return int(flo)
+
+
+# 문자열 정수의 합
+def solution(num_str):
+    answer = 0
+
+    for i in num_str:
+        answer += int(i)
+
+    return answer
+
+
+# 문자열을 정수로 변환하기
+def solution(n_str):
+    answer = 0
+    return int(n_str)

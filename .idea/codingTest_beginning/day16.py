@@ -1,34 +1,49 @@
-# 편지
-def solution(message):
-    return len(answer)*2
-
-# 배열의 유사도
-def solution(s1, s2):
-    answer = 0
-
-    for i in s1:
-        for j in s2:
-            if i == j:
-                answer += 1
+# 대문자로 바꾸기
+def solution(myString):
+    answer = myString.upper()
     return answer
 
-# 문자열 계산하기
-def solution(my_string):
-    return eval(my_string)
+# 소문자로 바꾸기
+def solution(myString):
+    answer = myString.lower()
+    return answer
 
-# 가장 큰 수 찾기 (1)
-def solution(array):
+# A 강조하기
+def solution(myString):
+    answer = ''
+
+    for i in myString:
+        if i == 'a':
+            answer += i.upper()
+        elif i != 'A':
+            answer += i.lower()
+        else :
+            answer += i
+
+
+    return answer
+
+# 배열에서 문자열 대소문자 변환하기
+def solution(strArr):
     answer = []
 
-    list = sorted(array, reverse=True)
-    answer.append(list[0])
+    for i, v in enumerate(strArr):
+        if i % 2 == 0:
+            strArr[i] = v.lower()
+        else :
+            strArr[i] = v.upper()
 
-    for index, val in enumerate(array):
-        if val == list[0]:
-            answer.append(index)
+
+    return strArr
+
+# 특정한 문자를 대문자로 바꾸기
+def solution(my_string, alp):
+    answer = ''
+
+    for i in my_string:
+        if i.lower() == alp.lower():
+            answer += alp.upper()
+        else :
+            answer += i
 
     return answer
-
-# 가장 큰 수 찾기 (2)
-def solution(array):
-    return [max(array), array.index(max(array))]

@@ -1,40 +1,46 @@
-# 점의 위치 구하기
-def solution(dot):
-    answer = 0
+# 문자열의 앞의 n글자
+def solution(my_string, n):
+    answer = my_string[:n]
+    return answer
 
-    if dot[0] > 0:
-        if dot[1] > 0:
-            answer = 1
-        else :
-            answer = 4
-    else :
-        if dot[1] > 0:
-            answer = 2
-        else :
-            answer = 3
+# 접두사인지 확인하기
+def solution(my_string, is_prefix):
+    answer = 0
+    arr = []
+    text = ''
+    for i in range(len(my_string)):
+        arr.append(my_string[:i])
+
+    return 1 if is_prefix in arr else 0
+
+
+# return int(my_string.startswith(is_prefix))
+
+
+# 문자열 뒤집기
+def solution(my_string, s, e):
+    answer = my_string[:s] + my_string[s:e+1][::-1] + my_string[e+1:]
+    return answer
+
+# 세로읽기
+def solution(my_string, m, c):
+    answer = ''
+
+    for i in range(0, len(my_string), m):
+        answer += my_string[i+c-1]
+
+    return answer
+# s[c-1::m]
+
+
+# qr code
+def solution(q, r, code):
+    answer = ''
+
+    for i in range(len(code)):
+        if i % q == r :
+            answer += code[i]
 
     return answer
 
-# 2차원으로 만들기
-import numpy as np
-
-def solution(num_list, n):
-    answer = np.array(num_list).reshape(-1, n)
-    return answer.tolist()
-
-# 공 던지기
-def solution(numbers, k):
-    return numbers[2 * (k - 1) % len(numbers)]
-
-# 배열 회전 시키기
-from collections import deque
-
-def solution(numbers, direction):
-
-    numbers = deque(numbers)
-    if direction == "right":
-        numbers.rotate(1)
-    elif direction == "left":
-        numbers.rotate(-1)
-
-    return list(numbers)
+# return code[r::q]
